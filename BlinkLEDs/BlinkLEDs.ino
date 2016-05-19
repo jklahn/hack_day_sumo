@@ -27,3 +27,28 @@ void loop()
   // Wait for a second.
   delay(1000);
 }
+
+
+void bootup() {
+  int sleep  = 0;
+
+  for(sleep = 100; sleep > 0; sleep -= 3 ) {
+    ledRed(0);
+    ledYellow(0);
+    ledGreen(0);
+    delay(sleep);
+
+    ledRed(1);
+    ledYellow(1);
+    ledGreen(1);
+    delay(sleep);
+
+    digitalWrite(port, HIGH);   // set the LED on
+    delay(sleep);
+  }
+
+  ledRed(1);
+  ledYellow(1);
+  ledGreen(1);
+}
+
