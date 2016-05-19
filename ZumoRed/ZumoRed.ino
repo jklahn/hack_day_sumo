@@ -48,6 +48,9 @@ const uint16_t rammingSpeedLow = 200;
 // opponents, in milliseconds.
 const uint16_t scanTimeMin = 200;
 
+// Traction sleep time
+const uint16_t tractionSleep = 25;
+
 // The maximum amount of time to spend scanning for nearby
 // opponents, in milliseconds.
 // const uint16_t scanTimeMax = 2100;
@@ -369,16 +372,18 @@ class StatePushing : public RobotState
             if (brightnessLeft > brightnessRight)
             {
                 // Swerve to the right.
-                motors.setSpeeds(rammingSpeed, rammingSpeedLow);
+                //motors.setSpeeds(rammingSpeed, rammingSpeedLow);
+                motors.setSpeeds(400, 300);
             }
             else
             {
-                motors.setSpeeds(rammingSpeedLow, rammingSpeed);
+                //motors.setSpeeds(rammingSpeedLow, rammingSpeed);
+                motors.setSpeeds(400, 300);
             }
         }
         else
         {
-            motors.setSpeeds(rammingSpeed, rammingSpeed);
+            motors.setSpeeds(400, 400);//max speed
         }
 
         // Check for the white border.
