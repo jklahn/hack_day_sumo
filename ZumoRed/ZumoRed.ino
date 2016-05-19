@@ -349,7 +349,7 @@ class StatePushing : public RobotState
 {
     void setup()
     {
-        lcd.print(F("31337"));
+        lcd.print(F("80085"));
     }
 
     void loop()
