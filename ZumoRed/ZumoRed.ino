@@ -352,7 +352,7 @@ class StatePushing : public RobotState
 {
     void setup()
     {
-        lcd.print(F("80085"));
+        lcd.print(F("IBM Hal 9000"));
     }
 
     void loop()
