@@ -372,13 +372,11 @@ class StatePushing : public RobotState
             if (brightnessLeft > brightnessRight)
             {
                 // Swerve to the right.
-                //motors.setSpeeds(rammingSpeed, rammingSpeedLow);
-                motors.setSpeeds(400, 300);
+                motors.setSpeeds(rammingSpeed, rammingSpeedLow);
             }
             else
             {
-                //motors.setSpeeds(rammingSpeedLow, rammingSpeed);
-                motors.setSpeeds(400, 300);
+                motors.setSpeeds(rammingSpeedLow, rammingSpeed);
             }
         }
         else
