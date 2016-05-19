@@ -279,7 +279,7 @@ void on_contact_made()
   in_contact = true;
   contact_made_time = loop_start_time;
   setForwardSpeed(FullSpeed);
-  buzzer.playFromProgramSpace(sound_effect);
+  //buzzer.playFromProgramSpace(sound_effect);
   ledRed(1);
 }
 
