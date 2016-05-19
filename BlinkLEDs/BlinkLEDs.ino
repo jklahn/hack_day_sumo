@@ -43,9 +43,6 @@ void bootup() {
     ledYellow(1);
     ledGreen(1);
     delay(sleep);
-
-    digitalWrite(port, HIGH);   // set the LED on
-    delay(sleep);
   }
 
   ledRed(1);
