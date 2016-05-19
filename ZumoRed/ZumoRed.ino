@@ -10,6 +10,11 @@ enum Direction
   DirectionRight,
 };
 
+// Sound Effects
+Zumo32U4Buzzer buzzer;
+const char sound_effect[] PROGMEM = "O4 T100 V15 L4 MS g12>c12>e12>G6>E12 ML>G2"; // "charge" melody
+ // use V0 to suppress sound effect; v15 for max volume
+
 // When the reading on a line sensor goes below this value, we
 // consider that line sensor to have detected the white border at
 // the edge of the ring.  This value might need to be tuned for
@@ -75,7 +80,7 @@ const uint16_t sensorDistance = 440;
 
 const char beep1[] PROGMEM = "!>c32";
 
-Zumo32U4Buzzer buzzer;
+//Zumo32U4Buzzer buzzer;
 Zumo32U4Encoders encoders;
 Zumo32U4Motors motors;
 Zumo32U4LCD lcd;
@@ -237,6 +242,7 @@ class StateWaiting : public RobotState
     else
     {
       // We have waited long enough.  Start moving.
+      buzzer.playFromProgramSpace(sound_effect);
       changeStateToDriving();
     }
   }
