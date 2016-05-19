@@ -7,6 +7,7 @@
 Zumo32U4LCD lcd;
 
 Zumo32U4ButtonA button;
+Zumo32U4ProximitySensors proxSensors;
 
 // Accelerometer Settings
 #define RA_SIZE 3  // number of readings to include in running average of accelerometer readings
@@ -114,6 +115,7 @@ void setForwardSpeed(ForwardSpeed speed);
 void setup()
 {
   sensors.initFiveSensors();
+  proxSensors.initThreeSensors();
 
   // Initialize the Wire library and join the I2C bus as a master
   Wire.begin();
@@ -203,7 +205,18 @@ void loop()
     turn(LEFT, true);
   }
   else  // otherwise, go straight
-  {
+  { 
+    proxSensors.read();
+    if (proxSensors.countsLeftWithLeftLeds() >= 2)
+    {
+      // Detected something to the left.
+      turn(LEFT, true);
+    }
+    if(proxSensors.countsRightWithRightLeds() >= 2)
+    {
+      // Detected something to the right.
+      turn(RIGHT, true);
+    }
     if (check_for_contact()) on_contact_made();
     int speed = getForwardSpeed();
     motors.setSpeeds(speed, speed);
