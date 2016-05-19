@@ -6,6 +6,7 @@ on the Zumo 32U4. */
 
 void setup()
 {
+bootup();
 
 }
 
